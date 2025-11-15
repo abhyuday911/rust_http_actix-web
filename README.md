@@ -22,6 +22,28 @@
 ##
 
 
-<!-- send orders from the route -->
-<!-- receive that in engine.rs -->
-<!-- put it in the orderBook -->
+<!-- 
+
+current: 
+    mpsc done and data is transmitted to engine from routes 
+    
+what needs to be done: 
+    [] now create order & order struct
+    [x] create orderBook state and send throughout the routes / maybe just send it to the engine?
+    
+    [] the engine mutates the value in the order-book (on what basis/structure, we shall decide)
+    
+
+
+-->
+
+<!-- 
+
+next hurdle:
+    
+    
+
+
+ -->
+
+

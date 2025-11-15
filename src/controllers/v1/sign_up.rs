@@ -10,7 +10,7 @@ use uuid::Uuid;
 use crate::{AppState, User};
 
 pub async fn sign_up(state: Data<AppState>, user_data: web::Json<User>) -> impl Responder {
-    let mut users = state.users.lock().unwrap();
+    let mut users = state.users.lock().await;
 
     // check if user exists, if yes bhag yha se **** //
     // hash the user data
@@ -39,7 +39,7 @@ pub async fn sign_up(state: Data<AppState>, user_data: web::Json<User>) -> impl 
     // cookie
     let user_session_id = Uuid::new_v4().to_string();
     {
-        let mut session_ids = state.session_ids.lock().unwrap();
+        let mut session_ids = state.session_ids.lock().await;
         session_ids.insert(user_session_id.clone(), user_data.username.clone());
     }
 

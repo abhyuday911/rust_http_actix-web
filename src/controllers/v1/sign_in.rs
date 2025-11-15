@@ -15,7 +15,7 @@ pub struct Signup {
 }
 
 pub async fn sign_in(state: Data<AppState>, user_data: web::Json<Signup>) -> impl Responder {
-    let users = state.users.lock().unwrap();
+    let users = state.users.lock().await;
 
     // if !users.contains_key(&user_data.username) {
     //     return HttpResponse::Conflict().json(json!({"error": "user not found"}))
